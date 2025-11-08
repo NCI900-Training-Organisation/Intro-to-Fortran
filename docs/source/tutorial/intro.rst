@@ -1,14 +1,14 @@
 .. admonition:: Programming syntax
    :class: Overview
 
-    * **Tutorial:** 30 min
+    * **Tutorial:** 45 min
 
         **Objectives:**
             #. Learn basic Fortran95 syntax and program structure.
 
 
 =============================
-Fortran 95: A Gentle Introduction
+Mordern Fortran Programming on Gadi
 =============================
 
 .. contents::
@@ -62,7 +62,7 @@ Minimal commands::
   ./hello
 
 On systems with multiple compilers, prefer explicit commands and flags.
-Use the ``.f90`` extension for all modern Fortran source files (90/95//2003/2008).
+Use the ``.f90`` extension for all modern Fortran source files (90/95/2003/2008).
 
 Hello, Fortran
 ==============
