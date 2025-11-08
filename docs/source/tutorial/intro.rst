@@ -419,20 +419,7 @@ Fortran 95 offers both. Prefer allocatables for dynamic arrays unless you need p
 Recursion, purity, and elemental procedures
 ===========================================
 
-Enable recursion explicitly in F95:
 
-.. code-block:: fortran
-
-   recursive function fib(n) result(f)
-     implicit none
-     integer, intent(in) :: n
-     integer :: f
-     if (n <= 1) then
-       f = n
-     else
-       f = fib(n-1) + fib(n-2)
-     end if
-   end function fib
 
 Pure procedures promise no side effects on inputs:
 
@@ -534,54 +521,6 @@ Starter:
      end function norm2
    end module vec
 
-Exercise 2: centered moving average
------------------------------------
-
-Given a real vector ``x``, compute a centered moving average of window width ``w`` (odd).
-Handle boundaries by leaving endpoints unchanged.
-
-Hints:
-
-- Use slicing and ``sum`` over sections
-- Consider a separate subroutine ``movavg(x, w, y)`` with ``intent(in)``, ``intent(out)``
-
-Exercise 3: 2D Laplace stencil
-------------------------------
-
-Allocate a 2D grid ``u(nx, ny)``, set boundary values, and relax the interior using the five-point stencil
-for a fixed number of iterations. Print the maximum change each iteration and stop early if it drops below a tolerance.
-
-Skeleton:
-
-.. code-block:: fortran
-
-   program laplace2d
-     implicit none
-     integer, parameter :: nx=50, ny=50, itmax=1000
-     real, parameter :: tol = 1.0e-5
-     real, allocatable :: u(:,:), unew(:,:)
-     integer :: it
-     real :: err
-
-     allocate(u(nx,ny), unew(nx,ny))
-     u = 0.0
-     u(:,ny) = 1.0   ! top boundary to 1
-
-     do it = 1, itmax
-       unew(2:nx-1,2:ny-1) = 0.25 * ( u(3:nx,2:ny-1) + u(1:nx-2,2:ny-1) &
-                                    + u(2:nx-1,3:ny  ) + u(2:nx-1,1:ny-2) )
-       unew(:,1)   = u(:,1)
-       unew(:,ny)  = u(:,ny)
-       unew(1,:)   = u(1,:)
-       unew(nx,:)  = u(nx,:)
-       err = maxval(abs(unew - u))
-       u = unew
-       if (err < tol) exit
-     end do
-
-     print *, "Iterations:", it, "max change:", err
-     deallocate(u, unew)
-   end program laplace2d
 
 Common pitfalls in F95
 ======================
