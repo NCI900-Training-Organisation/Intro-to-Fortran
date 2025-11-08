@@ -1,8 +1,7 @@
-Name of the Workshop
+Modern Fortran Programming on Gadi
 =================================================
 
-This repository provides an introduction to the concepts of parallel programming using Python.
-
+This repository provides an introduction to the modern Fortran programming on Gadi.
 .. note::
 
    This project is under active development.
@@ -15,7 +14,5 @@ Contents
    prerequisite
    outcomes
    modules
-   packages
-   are_errors.rst
    tutorial
    references

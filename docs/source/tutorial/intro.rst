@@ -1,13 +1,10 @@
-Heading level 2 (Section)
-==========================
-
-.. admonition:: Overview
+.. admonition:: Programming syntax
    :class: Overview
 
-    * **Tutorial:** 10 min
+    * **Tutorial:** 30 min
 
         **Objectives:**
-            #. Learn the how Numba works.
+            #. Learn basic Fortran95 syntax and program structure.
 
 
 =============================
